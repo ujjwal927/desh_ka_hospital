@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aapna Hospital | Book Appointment</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    :root {
+      --primary: #087f8c;
+      --secondary: #12b8a6;
+      --dark: #12343b;
+      --light: #f2fbfc;
+      --gray: #64748b;
+      --white: #fff;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    /* NAVBAR */
+    nav {
+      height: 75px;
+      padding: 0 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: bold;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      text-align: center;
+      padding: 65px 20px 35px;
+    }
+
+    .page-header span {
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    .page-header h1 {
+      font-size: 45px;
+      margin: 10px 0;
+    }
+
+    .page-header p {
+      color: var(--gray);
+    }
+
+    /* APPOINTMENT */
+    .appointment-wrapper {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto 70px;
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    }
+
+    .appointment-wrapper h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 14px;
+      border: 1px solid #d7e2e4;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(8,127,140,0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      margin-top: 25px;
+      border-radius: 30px;
+      background: var(--primary);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #066c77;
+      transform: translateY(-2px);
+    }
+
+    .back-home {
+      display: block;
+      width: fit-content;
+      margin: 25px auto 0;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      color: #b7ced1;
+      margin-top: 8px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 600px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      .page-header h1 {
+        font-size: 35px;
+      }
+
+      .appointment-wrapper {
+        width: 94%;
+        padding: 25px 18px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+
+    <div class="logo">
+
+      <div class="logo-icon">+</div>
+
+      Aapna Hospital
+
+    </div>
+
+    <!-- CONNECTED BACK TO HOME -->
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+  </nav>
+
+
+  <!-- HEADER -->
+  <div class="page-header">
+
+    <span>APPOINTMENT</span>
+
+    <h1>
+      Book Your Appointment
+    </h1>
+
+    <p>
+      Fill in the form below and our team will contact you.
+    </p>
+
+  </div>
+
+
+  <!-- FORM -->
+  <div class="appointment-wrapper">
+
+    <h2>
+      📅 Patient Information
+    </h2>
+
+
+    <form id="appointmentForm">
+
+      <div class="form-grid">
+
+        <!-- NAME -->
+        <div class="form-group">
+
+          <label>
+            Full Name *
+          </label>
+
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            required
+          >
+
+        </div>
+
+
+        <!-- PHONE -->
+        <div class="form-group">
+
+          <label>
+            Phone Number *
+          </label>
+
+          <input
+            type="tel"
+            placeholder="Enter phone number"
+            required
+          >
+
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="form-group">
+
+          <label>
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          >
+
+        </div>
+
+
+        <!-- DEPARTMENT -->
+        <div class="form-group">
+
+          <label>
+            Department *
+          </label>
+
+          <select required>
+
+            <option value="">
+              Select Department
+            </option>
+
+            <option>
+              Cardiology
+            </option>
+
+            <option>
+              Neurology
+            </option>
+
+            <option>
+              Orthopedics
+            </option>
+
+            <option>
+              Pediatrics
+            </option>
+
+            <option>
+              General Medicine
+            </option>
+
+            <option>
+              Laboratory
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- DATE -->
+        <div class="form-group">
+
+          <label>
+            Appointment Date *
+          </label>
+
+          <input
+            type="date"
+            required
+          >
+
+        </div>
+
+
+        <!-- TIME -->
+        <div class="form-group">
+
+          <label>
+            Preferred Time *
+          </label>
+
+          <input
+            type="time"
+            required
+          >
+
+        </div>
+
+
+        <!-- MESSAGE -->
+        <div class="form-group full">
+
+          <label>
+            Message / Health Concern
+          </label>
+
+          <textarea
+            placeholder="Briefly describe your concern..."
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="submit-btn"
+      >
+        Confirm Appointment
+      </button>
+
+    </form>
+
+
+    <!-- CONNECTED BACK TO HOME -->
+    <a href="index.html" class="back-home">
+      ← Back to Home
+    </a>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h3>
+      Aapna Hospital
+    </h3>
+
+    <p>
+      Quality healthcare with compassion and trust.
+    </p>
+
+    <p>
+      © 2026 Aapna Hospital. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const form =
+      document.getElementById("appointmentForm");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert(
+        "✅ Appointment request submitted successfully!"
+      );
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
